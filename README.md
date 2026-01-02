@@ -1,6 +1,6 @@
-Gif Viewer Modernized
 A modernized fork of the classic Gif Viewer from SourceForge. This version has been rescued from legacy codebases, upgraded to .NET 4.8, and optimized for modern Windows environments.
 
+## Changes
 Framework Upgrade: Migrated from .NET 4.5 to .NET 4.8 for better stability and security.
 Modern Tooling: Full compatibility with Visual Studio 2026 and MSBuild.
 Dependency Fixes: Resolved legacy resource serialization issues (MSB3822).
