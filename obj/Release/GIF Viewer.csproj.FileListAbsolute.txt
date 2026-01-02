@@ -1,0 +1,32 @@
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GifComponents\license.txt
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GIF Viewer.exe.config
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GIF Viewer.exe.manifest
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GIF Viewer.application
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GIF Viewer.exe
+C:\Users\Root\Projects\gifviewer-git\bin\Release\GIF Viewer.pdb
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Buffers.dll
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Memory.dll
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Resources.Extensions.dll
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Buffers.xml
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Memory.xml
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Resources.Extensions.xml
+C:\Users\Root\Projects\gifviewer-git\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.csproj.AssemblyReference.cache
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.FormMain.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Views.FormatForm.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Views.FrameExtract.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Views.FrameExtractorHelp.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Properties.Resources.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Views.ErrorBox.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF_Viewer.Views.SettingsForm.resources
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.csproj.GenerateResource.cache
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.csproj.CoreCompileInputs.cache
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.TrustInfo.xml
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.exe.manifest
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.application
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.csproj.Up2Date
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.exe
+C:\Users\Root\Projects\gifviewer-git\obj\Release\GIF Viewer.pdb
