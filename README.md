@@ -10,6 +10,6 @@ Dark mode: dark mode.
 This project is a fork of the original Gif Viewer hosted on SourceForge, created by p_reagan in 2013. As the original project has been dormant for over a decade, this fork aims to keep the utility alive and functional for the modern era.
 
 ## License
-This project is licensed under the GNU General Public License v2.0—the same license as the original source code. See the LICENSE file for details.
+This project is licensed under the GNU General Public License v3.0—the same license as the original source code. See the LICENSE file for details.
 
 Original project: https://sourceforge.net/projects/gifviewer/
