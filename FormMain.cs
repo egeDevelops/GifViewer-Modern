@@ -248,8 +248,20 @@ namespace GIF_Viewer
         /// 
 
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct MARGINS
+        {
+            public int leftWidth;
+            public int rightWidth;
+            public int topHeight;
+            public int bottomHeight;
+        }
+
         [DllImport("dwmapi.dll")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
 
         private void Apply2026Effects()
         {
@@ -258,16 +270,21 @@ namespace GIF_Viewer
             DwmSetWindowAttribute(this.Handle, 20, ref darkMode, sizeof(int));
 
             // 2. Mica Backdrop (Attribute 38)
-            int backdropType = 2; // 2 = Mica, 4 = Mica Alt
+            int backdropType = 2; // 2 = Mica
             DwmSetWindowAttribute(this.Handle, 38, ref backdropType, sizeof(int));
 
             // 3. Rounded Corners (Attribute 33)
             int cornerPref = 2;
             DwmSetWindowAttribute(this.Handle, 33, ref cornerPref, sizeof(int));
 
-            // 4. The WinForms Hack (The "Hole" for Mica)
-            this.BackColor = Color.FromArgb(32, 32, 32);
-            this.TransparencyKey = Color.FromArgb(32, 32, 32);
+            // 4. The Fix: Extend Frame + Solid Black BackColor
+            // We REMOVE TransparencyKey so the mouse actually hits the window
+            this.BackColor = Color.Black;
+            this.TransparencyKey = Color.Empty;
+
+            // This tells DWM to bleed the Mica effect into the entire window
+            MARGINS margins = new MARGINS { leftWidth = -1, rightWidth = -1, topHeight = -1, bottomHeight = -1 };
+            DwmExtendFrameIntoClientArea(this.Handle, ref margins);
         }
         public FormMain(string[] args)
         {
