@@ -34,6 +34,7 @@ namespace GIF_Viewer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFrame = new System.Windows.Forms.Label();
+            this.tlc_timeline = new GIF_Viewer.Controls.TimelineControl();
             this.cb_useMinFrameInterval = new System.Windows.Forms.CheckBox();
             this.fileFormatWarningImage = new System.Windows.Forms.PictureBox();
             this.nud_minFrameInterval = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +46,6 @@ namespace GIF_Viewer
             this.tt_mainTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.pb_gif = new GIF_Viewer.CPictureBox();
-            this.tlc_timeline = new GIF_Viewer.Controls.TimelineControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileFormatWarningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_minFrameInterval)).BeginInit();
@@ -65,7 +65,7 @@ namespace GIF_Viewer
             this.panel1.Controls.Add(this.PlayBtn);
             this.panel1.Controls.Add(this.btn_configuration);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 412);
+            this.panel1.Location = new System.Drawing.Point(0, 217);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(484, 50);
             this.panel1.TabIndex = 1;
@@ -82,6 +82,29 @@ namespace GIF_Viewer
             this.lblFrame.TabIndex = 2;
             this.lblFrame.Text = "Frame: ";
             this.lblFrame.Click += new System.EventHandler(this.lblFrame_Click);
+            // 
+            // tlc_timeline
+            // 
+            this.tlc_timeline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlc_timeline.BehaviorType = GIF_Viewer.Controls.TimelineBehaviorType.Timeline;
+            this.tlc_timeline.CurrentFrame = 1;
+            this.tlc_timeline.DisplayFrameUnderMouse = true;
+            this.tlc_timeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlc_timeline.FrameDisplayType = GIF_Viewer.Controls.TimelineFrameDisplayType.FrameNumber;
+            this.tlc_timeline.Location = new System.Drawing.Point(75, 4);
+            this.tlc_timeline.Maximum = 10;
+            this.tlc_timeline.Minimum = 1;
+            this.tlc_timeline.Name = "tlc_timeline";
+            this.tlc_timeline.Range = new System.Drawing.Point(1, 9);
+            this.tlc_timeline.ScrollScaleWidth = 1D;
+            this.tlc_timeline.ScrollX = 0D;
+            this.tlc_timeline.Size = new System.Drawing.Size(305, 43);
+            this.tlc_timeline.TabIndex = 6;
+            this.tlc_timeline.Text = "timelineControl1";
+            this.tlc_timeline.TimelineHeight = 15;
+            this.tlc_timeline.RangeChanged += new GIF_Viewer.Controls.TimelineControl.RangeChangedEventHandler(this.tlc_timeline_RangeChanged);
+            this.tlc_timeline.FrameChanged += new GIF_Viewer.Controls.TimelineControl.FrameChangedEventHandler(this.tlc_timeline_FrameChanged);
             // 
             // cb_useMinFrameInterval
             // 
@@ -132,12 +155,11 @@ namespace GIF_Viewer
             // 
             // PlayBtn
             // 
-            this.PlayBtn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.PlayBtn.BackColor = System.Drawing.Color.Transparent;
             this.PlayBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.PlayBtn.FlatAppearance.BorderSize = 0;
-            this.PlayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PlayBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayBtn.ForeColor = System.Drawing.Color.White;
+            this.PlayBtn.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.PlayBtn.Location = new System.Drawing.Point(3, 3);
             this.PlayBtn.Name = "PlayBtn";
             this.PlayBtn.Size = new System.Drawing.Size(66, 24);
@@ -186,7 +208,7 @@ namespace GIF_Viewer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLoading.Location = new System.Drawing.Point(0, 0);
             this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(484, 412);
+            this.lblLoading.Size = new System.Drawing.Size(484, 217);
             this.lblLoading.TabIndex = 2;
             this.lblLoading.Text = "Loading...";
             this.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -200,7 +222,7 @@ namespace GIF_Viewer
             this.panel2.Controls.Add(this.pb_gif);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 412);
+            this.panel2.Size = new System.Drawing.Size(484, 217);
             this.panel2.TabIndex = 3;
             // 
             // pb_gif
@@ -210,34 +232,11 @@ namespace GIF_Viewer
             this.pb_gif.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_gif.Location = new System.Drawing.Point(0, 0);
             this.pb_gif.Name = "pb_gif";
-            this.pb_gif.Size = new System.Drawing.Size(484, 412);
+            this.pb_gif.Size = new System.Drawing.Size(484, 217);
             this.pb_gif.TabIndex = 0;
             this.pb_gif.TabStop = false;
             this.pb_gif.Click += new System.EventHandler(this.pb_gif_Click);
             this.pb_gif.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pb_gif_MouseDown);
-            // 
-            // tlc_timeline
-            // 
-            this.tlc_timeline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlc_timeline.BehaviorType = GIF_Viewer.Controls.TimelineBehaviorType.Timeline;
-            this.tlc_timeline.CurrentFrame = 1;
-            this.tlc_timeline.DisplayFrameUnderMouse = true;
-            this.tlc_timeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlc_timeline.FrameDisplayType = GIF_Viewer.Controls.TimelineFrameDisplayType.FrameNumber;
-            this.tlc_timeline.Location = new System.Drawing.Point(75, 4);
-            this.tlc_timeline.Maximum = 10;
-            this.tlc_timeline.Minimum = 1;
-            this.tlc_timeline.Name = "tlc_timeline";
-            this.tlc_timeline.Range = new System.Drawing.Point(1, 9);
-            this.tlc_timeline.ScrollScaleWidth = 1D;
-            this.tlc_timeline.ScrollX = 0D;
-            this.tlc_timeline.Size = new System.Drawing.Size(305, 43);
-            this.tlc_timeline.TabIndex = 6;
-            this.tlc_timeline.Text = "timelineControl1";
-            this.tlc_timeline.TimelineHeight = 15;
-            this.tlc_timeline.RangeChanged += new GIF_Viewer.Controls.TimelineControl.RangeChangedEventHandler(this.tlc_timeline_RangeChanged);
-            this.tlc_timeline.FrameChanged += new GIF_Viewer.Controls.TimelineControl.FrameChangedEventHandler(this.tlc_timeline_FrameChanged);
             // 
             // FormMain
             // 
@@ -245,7 +244,7 @@ namespace GIF_Viewer
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(484, 462);
+            this.ClientSize = new System.Drawing.Size(484, 267);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblLoading);
