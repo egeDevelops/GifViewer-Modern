@@ -251,20 +251,28 @@ namespace GIF_Viewer
         [DllImport("dwmapi.dll")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
-        private void ApplyDarkMode()
+        private void Apply2026Effects()
         {
-            // Try attribute 20 (Windows 11 and Win 10 20H1+)
-            int useDarkMode = 1;
-            if (DwmSetWindowAttribute(this.Handle, 20, ref useDarkMode, sizeof(int)) != 0)
-            {
-                // If 20 fails, try attribute 19 (Older Windows 10)
-                DwmSetWindowAttribute(this.Handle, 19, ref useDarkMode, sizeof(int));
-            }
+            // 1. Dark Mode Title Bar (Attribute 20)
+            int darkMode = 1;
+            DwmSetWindowAttribute(this.Handle, 20, ref darkMode, sizeof(int));
+
+            // 2. Mica Backdrop (Attribute 38)
+            int backdropType = 2; // 2 = Mica, 4 = Mica Alt
+            DwmSetWindowAttribute(this.Handle, 38, ref backdropType, sizeof(int));
+
+            // 3. Rounded Corners (Attribute 33)
+            int cornerPref = 2;
+            DwmSetWindowAttribute(this.Handle, 33, ref cornerPref, sizeof(int));
+
+            // 4. The WinForms Hack (The "Hole" for Mica)
+            this.BackColor = Color.FromArgb(32, 32, 32);
+            this.TransparencyKey = Color.FromArgb(32, 32, 32);
         }
         public FormMain(string[] args)
         {
             InitializeComponent();
-            ApplyDarkMode();
+            Apply2026Effects();
 
             _currentGif = new GifFile();
 
