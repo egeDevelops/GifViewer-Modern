@@ -1,7 +1,9 @@
 # GIF Viewer (2026 Modernized Fork)
 
 A modernized fork of the classic GIF Viewer originally hosted on SourceForge. This version has been rescued from legacy codebases, upgraded to .NET 4.8.1, and optimized for modern Windows environments.
+### Visual Comparison
 
+![Comparison](Assets/comparison.png) 
 ## Overview
 This project is a fork of the original GIF Viewer created by luizzak in 2013. As the original project has been dormant for over a decade, this fork aims to keep the utility alive and functional for the modern era by implementing native Windows 11/12 features and streamlining the user experience.
 
