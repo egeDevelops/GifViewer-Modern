@@ -1022,29 +1022,16 @@ namespace GIF_Viewer
             cms_gifRightClick.Close();
 
             // Open the .gif file with another application
-            if (e.ClickedItem.Text == @"Open With..." && e.ClickedItem.Tag == null)
+            if (e.ClickedItem.Text == @"Open..." || e.ClickedItem.Text == @"Open With...")
             {
-                OpenFileDialog ofd = new OpenFileDialog { Filter = @"Executable files|*.exe" };
-
-                if (ofd.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    if (ofd.FileName.EndsWith("exe"))
+                    ofd.Filter = "GIF Files (*.gif)|*.gif";
+                    if (ofd.ShowDialog() == DialogResult.OK)
                     {
-                        ToolStripItem it = cms_gifRightClick.Items.Add(Path.GetFileNameWithoutExtension(ofd.FileName));
-                        it.Tag = ofd.FileName;
-
-                        cms_gifRightClick.Items.Remove(it);
-                        cms_gifRightClick.Items.Insert(cms_gifRightClick.Items.Count - 1, it);
-
-                        Settings.Instance.Programs.Add(Path.GetFileNameWithoutExtension(ofd.FileName), ofd.FileName);
-
-                        SaveSettings();
-
-                        Process.Start(ofd.FileName, "\"" + _currentGif.GifPath + "\"");
-                        Close();
+                        this.LoadGif(ofd.FileName); // Use your app's specific load method name
                     }
                 }
-
                 return;
             }
 
