@@ -34,7 +34,6 @@ namespace GIF_Viewer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFrame = new System.Windows.Forms.Label();
-            this.tlc_timeline = new GIF_Viewer.Controls.TimelineControl();
             this.cb_useMinFrameInterval = new System.Windows.Forms.CheckBox();
             this.fileFormatWarningImage = new System.Windows.Forms.PictureBox();
             this.nud_minFrameInterval = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +45,7 @@ namespace GIF_Viewer
             this.tt_mainTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.pb_gif = new GIF_Viewer.CPictureBox();
+            this.tlc_timeline = new GIF_Viewer.Controls.TimelineControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileFormatWarningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_minFrameInterval)).BeginInit();
@@ -74,37 +74,14 @@ namespace GIF_Viewer
             // 
             this.lblFrame.AutoSize = true;
             this.lblFrame.BackColor = System.Drawing.Color.Transparent;
-            this.lblFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrame.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblFrame.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblFrame.Location = new System.Drawing.Point(3, 30);
             this.lblFrame.Name = "lblFrame";
-            this.lblFrame.Size = new System.Drawing.Size(49, 15);
+            this.lblFrame.Size = new System.Drawing.Size(44, 15);
             this.lblFrame.TabIndex = 2;
             this.lblFrame.Text = "Frame: ";
             this.lblFrame.Click += new System.EventHandler(this.lblFrame_Click);
-            // 
-            // tlc_timeline
-            // 
-            this.tlc_timeline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlc_timeline.BehaviorType = GIF_Viewer.Controls.TimelineBehaviorType.Timeline;
-            this.tlc_timeline.CurrentFrame = 1;
-            this.tlc_timeline.DisplayFrameUnderMouse = true;
-            this.tlc_timeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlc_timeline.FrameDisplayType = GIF_Viewer.Controls.TimelineFrameDisplayType.FrameNumber;
-            this.tlc_timeline.Location = new System.Drawing.Point(75, 4);
-            this.tlc_timeline.Maximum = 10;
-            this.tlc_timeline.Minimum = 1;
-            this.tlc_timeline.Name = "tlc_timeline";
-            this.tlc_timeline.Range = new System.Drawing.Point(1, 9);
-            this.tlc_timeline.ScrollScaleWidth = 1D;
-            this.tlc_timeline.ScrollX = 0D;
-            this.tlc_timeline.Size = new System.Drawing.Size(305, 43);
-            this.tlc_timeline.TabIndex = 6;
-            this.tlc_timeline.Text = "timelineControl1";
-            this.tlc_timeline.TimelineHeight = 15;
-            this.tlc_timeline.RangeChanged += new GIF_Viewer.Controls.TimelineControl.RangeChangedEventHandler(this.tlc_timeline_RangeChanged);
-            this.tlc_timeline.FrameChanged += new GIF_Viewer.Controls.TimelineControl.FrameChangedEventHandler(this.tlc_timeline_FrameChanged);
             // 
             // cb_useMinFrameInterval
             // 
@@ -112,11 +89,11 @@ namespace GIF_Viewer
             this.cb_useMinFrameInterval.AutoSize = true;
             this.cb_useMinFrameInterval.Checked = true;
             this.cb_useMinFrameInterval.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_useMinFrameInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_useMinFrameInterval.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 8.25F, System.Drawing.FontStyle.Bold);
             this.cb_useMinFrameInterval.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cb_useMinFrameInterval.Location = new System.Drawing.Point(386, 5);
+            this.cb_useMinFrameInterval.Location = new System.Drawing.Point(386, 4);
             this.cb_useMinFrameInterval.Name = "cb_useMinFrameInterval";
-            this.cb_useMinFrameInterval.Size = new System.Drawing.Size(92, 19);
+            this.cb_useMinFrameInterval.Size = new System.Drawing.Size(85, 19);
             this.cb_useMinFrameInterval.TabIndex = 5;
             this.cb_useMinFrameInterval.Text = "Use Min ms";
             this.cb_useMinFrameInterval.UseVisualStyleBackColor = true;
@@ -139,7 +116,7 @@ namespace GIF_Viewer
             this.nud_minFrameInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nud_minFrameInterval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.nud_minFrameInterval.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nud_minFrameInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_minFrameInterval.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 8.25F, System.Drawing.FontStyle.Bold);
             this.nud_minFrameInterval.ForeColor = System.Drawing.SystemColors.Info;
             this.nud_minFrameInterval.Location = new System.Drawing.Point(386, 25);
             this.nud_minFrameInterval.Maximum = new decimal(new int[] {
@@ -176,9 +153,8 @@ namespace GIF_Viewer
             this.btn_configuration.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_configuration.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_configuration.FlatAppearance.BorderSize = 0;
-            this.btn_configuration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_configuration.Image = global::GIF_Viewer.Properties.Resources.applications_system;
-            this.btn_configuration.Location = new System.Drawing.Point(442, 24);
+            this.btn_configuration.Location = new System.Drawing.Point(439, 25);
             this.btn_configuration.Name = "btn_configuration";
             this.btn_configuration.Size = new System.Drawing.Size(33, 22);
             this.btn_configuration.TabIndex = 7;
@@ -237,6 +213,29 @@ namespace GIF_Viewer
             this.pb_gif.TabStop = false;
             this.pb_gif.Click += new System.EventHandler(this.pb_gif_Click);
             this.pb_gif.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pb_gif_MouseDown);
+            // 
+            // tlc_timeline
+            // 
+            this.tlc_timeline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlc_timeline.BehaviorType = GIF_Viewer.Controls.TimelineBehaviorType.Timeline;
+            this.tlc_timeline.CurrentFrame = 1;
+            this.tlc_timeline.DisplayFrameUnderMouse = true;
+            this.tlc_timeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlc_timeline.FrameDisplayType = GIF_Viewer.Controls.TimelineFrameDisplayType.FrameNumber;
+            this.tlc_timeline.Location = new System.Drawing.Point(75, 4);
+            this.tlc_timeline.Maximum = 10;
+            this.tlc_timeline.Minimum = 1;
+            this.tlc_timeline.Name = "tlc_timeline";
+            this.tlc_timeline.Range = new System.Drawing.Point(1, 9);
+            this.tlc_timeline.ScrollScaleWidth = 1D;
+            this.tlc_timeline.ScrollX = 0D;
+            this.tlc_timeline.Size = new System.Drawing.Size(305, 43);
+            this.tlc_timeline.TabIndex = 6;
+            this.tlc_timeline.Text = "timelineControl1";
+            this.tlc_timeline.TimelineHeight = 15;
+            this.tlc_timeline.RangeChanged += new GIF_Viewer.Controls.TimelineControl.RangeChangedEventHandler(this.tlc_timeline_RangeChanged);
+            this.tlc_timeline.FrameChanged += new GIF_Viewer.Controls.TimelineControl.FrameChangedEventHandler(this.tlc_timeline_FrameChanged);
             // 
             // FormMain
             // 

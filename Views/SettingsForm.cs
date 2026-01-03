@@ -229,5 +229,10 @@ namespace GIF_Viewer.Views
         {
 
         }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
