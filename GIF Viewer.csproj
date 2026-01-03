@@ -254,6 +254,7 @@
     <None Include="GifComponents\license.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Assets\comparison.png" />
     <Content Include="icon32x32.ico" />
     <None Include="Resources\process-stop.png" />
     <None Include="Resources\action_check.png" />
